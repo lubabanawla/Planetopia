@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@font-face {
+    font-family: 'Avalors Personal Use';
+    src: url('fonts/Avalors-PersonalUse.ttf') format('truetype');
+}
+
+:root {
+    --main-background: #0b0c0f;
+    --main-fonts-color: #fff;
+    --main-decor-color: #fff;
+    --main-header-background: #080324;
+    --main-font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-font-family);
+    background: var(--main-background);
+    color: var(--main-fonts-color);
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--main-header-background);
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    padding: 0 20px;
+}
+
+#logos {
+    display: flex;
+    align-items: center; /* Align logo and text vertically */
+    margin-left: 20px; /* Adjust to add space between #logos and the header's left edge */
+}
+
+.logo img {
+    height: 50px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: var(--main-font-family);
+    font-style: italic;
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: var(--main-fonts-color);
+    text-decoration: none;
+    margin-left: 15px; /* Add space between the logo and text */
+    transition: 0.3s;
+}
+
+.logo-text:hover {
+    text-decoration: underline;
+}
+
+.logo-text:active {
+    color: #ffdb3b; /* Change color on click */
+}
+
+.nav-bar {
+    list-style: none;
+    display: flex;
+}
+
+.nav-link {
+    margin: 2px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--main-fonts-color);
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    background: #4a32a8;
+    color: #efedf7;
+    transition: 0.3s;
+}
+
+#contact {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contact-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-image {
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,40 @@
+<html></html>
+   <head> 
+       <link rel="stylesheet" type="text/css" href="css/style2.css">
+       
+    </head>
+    <title> Planetopia</title>
+<body>
+    <div id="container">
+        <div id="background">
+            <div id="circleContainer">
+                 <div id="circle"></div>
+             </div>
+            <input type="color" id="colorPicker">
+            <div id="shoes"> </div>    
+            <div id="rings"></div> 
+        </div>
+        <div align="center" id="questionContainer">
+            <form id="planetForm">
+                <label for="nameInput"> <br><br>Welcome to Planetopia - where you can create your dream world! <br> Use the buttons & color picker to customize the planet to your liking. <br>What will your planet be called?<br><br></label>
+                <input type="text" id="nameInput" name="nameInput" required>
+                <button type="submit">Submit</button>
+            </form>
+            <h1 id="planetHeading" style="display:none;"></h1>        
+        </div>
+
+        <div id="ringButtonContainer">
+            <h3>Select your planet's rings: </h3>
+            <input type="button" value="NEXT" class="btn" id="nextring" onclick="nextring()">
+        </div>
+        <div id="landscapeButtonContainer">
+            <h3>Select your planet's landscape/exterior look: </h3>
+            <input type="button" value="NEXT" class="btn" id="nextlandscape" onclick="nextlandscape()">
+        </div>
+        
+    </div>
+    <script src="js/code.js"></script>
+    
+    </body>
+
+</html>

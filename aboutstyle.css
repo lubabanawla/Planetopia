@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+    --main-background: #0b0c0f;
+    --main-fonts-color: #fff;
+    --main-header-background: #080324;
+    --main-font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-font-family);
+    background: var(--main-background);
+    color: var(--main-fonts-color);
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--main-header-background);
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    padding: 0 20px;
+}
+
+#logos {
+    display: flex;
+    align-items: center; /* Align logo and text vertically */
+    margin-left: 20px; /* Adjust to add space between #logos and the header's left edge */
+}
+
+.logo img {
+    height: 50px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: var(--main-font-family);
+    font-style: italic;
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: var(--main-fonts-color);
+    text-decoration: none;
+    margin-left: 15px; /* Add space between the logo and text */
+    transition: 0.3s;
+}
+
+.logo-text:hover {
+    text-decoration: underline;
+}
+
+.logo-text:active {
+    color: #ffdb3b; /* Change color on click */
+}
+
+
+.nav-bar{
+	list-style:none;
+	display: inline-flex;
+    margin-right: 20px;
+}
+
+a.nav-link{
+	margin: 2px;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: var(--main-fonts-color);
+	font-family: var(--main-font-family);
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.active{
+	background: var(--main-decor-color);
+}
+
+.nav-link:hover {
+    color: #efedf7; /* Text hover color */
+    background: #4a32a8; /* Background hover color */
+    transition: 0.3s; /* Optional smooth transition */
+}
+
+
+.banner {
+    position: relative;
+    height: 100vh;
+    background: url('https://static.vecteezy.com/system/resources/previews/003/743/365/non_2x/abstract-colorful-galaxy-space-background-free-vector.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(128, 0, 128, 0.5), transparent);
+    z-index: 1;
+}
+
+.overlay-text {
+    position: relative;
+    z-index: 2;
+    color: var(--main-fonts-color);
+    margin-left: 150px;
+}
+
+.overlay-text h1 {
+    font-size: 5rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.content {
+    padding: 100px 20px;
+    text-align: center;
+    background: #1c1c1c;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.container {
+	padding: 2rem;
+}
+
+.slider-wrapper {
+	position: relative;
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
+.slider {
+	display: flex;
+	aspect-ratio: 16 / 9;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+	border-radius: 0.5rem;
+	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+	scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider img {
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+	object-fit: cover;
+}
+
+.slider-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.slider-nav a {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #fff;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+	opacity: 1;
+}
+
+.info-rectangle {
+    background-color: #695196;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: var(--main-fonts-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.info-rectangle .info-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.info-rectangle .info-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #efedf7; /* Slightly lighter color for the text */
+}
+
+.info-banner img {
+    width: 100%; /* Ensures the image scales responsively */
+    max-width: 800px; /* Limit the image's maximum width */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 5px;
+    object-fit: cover; /* Ensures the image doesn't distort */
+    display: block; /* Ensures no extra space around the image */
+    margin: 0 auto; /* Centers the image within the div */
+}
+
+
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .overlay-text h1 {
+        font-size: 3rem;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+}
