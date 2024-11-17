@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+@font-face {
+    font-family: 'Avalors Personal Use';
+    src: url('fonts/Avalors-PersonalUse.ttf') format('truetype');
+}
+
+/*────────────────── 
+       header
+──────────────────*/
+
+header {
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    transition: 0.3s;
+    z-index: 5;
+}
+
+header {
+    opacity: 1;
+    /* Always visible */
+    background: var(--main-header-background);
+    /* Optional to keep background */
+}
+
+#logos {
+    display: flex;
+    align-items: center;
+    /* Align logo and text vertically */
+    margin-left: 20px;
+    /* Adjust to add space between #logos and the header's left edge */
+}
+
+.logo img {
+    height: 50px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: var(--main-font-family);
+    font-style: italic;
+    font-size: 1.2rem;
+    /* Adjust size as needed */
+    color: var(--main-fonts-color);
+    text-decoration: none;
+    margin-left: 15px;
+    /* Add space between the logo and text */
+    transition: 0.3s;
+}
+
+.logo-text:hover {
+    text-decoration: underline;
+}
+
+.logo-text:active {
+    color: #ffdb3b;
+    /* Change color on click */
+}
+
+.nav-bar {
+    list-style: none;
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+a.nav-link {
+    margin: 2px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--main-fonts-color);
+    font-family: var(--main-font-family);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.active {
+    background: var(--main-decor-color);
+}
+
+.nav-link:hover {
+    color: #efedf7;
+    /* Text hover color */
+    background: #4a32a8;
+    /* Background hover color */
+    transition: 0.3s;
+    /* Optional smooth transition */
+}
+
+/*────────────────── 
+       body
+──────────────────*/
+
+:root {
+    --main-background: #0b0c0f;
+    --main-fonts-color: #fff;
+    --main-decor-color: #fff;
+    --main-header-background: #080324;
+    --main-font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url("../img/assets/resized_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    font-family: var(--main-font-family);
+    text-align: center;
+    margin: 0;
+}
+
+#container {
+    display: grid;
+    grid-template-areas:
+        "a b d"
+        "a b e"
+        "a c f";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: end;
+    padding: 20px;
+    padding-top: 90px;
+}
+
+#container>* {
+    align-items: center;
+}
+
+#container>#background {
+    grid-area: a;
+    position: relative;
+}
+
+#container>#questionContainer {
+    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container>#ringButtonContainer {
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container>#colorButtonContainer {
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container>#landscapeButtonContainer {
+    grid-area: e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container>#chatButtonContainer {
+    grid-area: f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    padding-bottom: 15px;
+    letter-spacing: normal;
+    font-family: var(--main-font-family);
+    font-style: normal;
+    font-size: 14px;
+    color: var(--main-fonts-color);
+}
+
+button {
+    align-items: center;
+    background-color: #515c91;
+}
+
+strong {
+    z-index: 2;
+    font-family: 'Avalors Personal Use', sans-serif;
+    font-size: 12px;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.section {
+    background: #515c91;
+    border-radius: 20px;
+}
+
+#background {
+    background: linear-gradient(#A279CC, #7788DA, #5296E4);
+    align-items: center;
+}
+
+#circleContainer {
+    padding: 9%;
+}
+
+#circle {
+    width: auto;
+    aspect-ratio: 1/1;
+    background-color: black;
+    /* Initial color */
+    border-radius: 100%;
+    z-index: 0;
+}
+
+#colorPicker {
+    /* Sticks it to a certain position within its container */
+    /* Fixed distance from the right edge */
+    border: 2px solid #fff;
+    /* Optional border for clarity */
+    border-radius: 8px;
+    /* Optional: rounded edges */
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+#planetHeading {
+    color: white;
+}
+
+#shoes {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.cloudy {
+    background-image: url(../img/assets/cloudy.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.jupiter {
+    background-image: url(../img/assets/jupiter.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.scales {
+    background-image: url(../img/assets/scales.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#rings {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.onering {
+    background-image: url(../img/assets/onering.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.tworings {
+    background-image: url(../img/assets/tworings.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.snowring {
+    background-image: url(../img/assets/snowring.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.snowring2 {
+    background-image: url(../img/assets/snowring2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#nextring {
+    right: 20px;
+    top: 90px;
+}
+
+#nextlandscape {
+    right: 20px;
+    top: 90px;
+}

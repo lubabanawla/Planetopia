@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asendi the Alien Guide Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="css/visit.css" />
+  </head>
+  <!--────────────────Header───────────────-->
+  <header>
+    <div id="logos">
+      <a class="logo" href="#home">
+        <img src="SPACELOGO.gif" alt="Logo" />
+      </a>
+      <a
+        class="logo-text"
+        href="https://ascend.hackclub.com/"
+        target="_blank"
+        rel="noopener"
+        >Ascend 2024</a
+      >
+    </div>
+    <ul class="nav-bar">
+      <li><a class="nav-link" href="home.html">Home</a></li>
+      <li><a class="nav-link" href="design.html">Design</a></li>
+      <li><a class="nav-link" href="about.html">About</a></li>
+      <li><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+  <body>
+    <!--─────────────────Chat────────────────-->
+    <div class="chat-container">
+      <h1>Asendi's Travel Agency - Galactic Chat</h1>
+      <div id="chat-window" class="chat-window">
+        <div id="chat-log" class="chat-log"></div>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type your message here..."
+          autofocus
+        />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/visit.js"></script>
+  </body>
+</html>

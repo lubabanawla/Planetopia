@@ -1,0 +1,103 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/design.css" />
+    <title>Planetopia</title>
+  </head>
+
+  <!--────────────────Header───────────────-->
+  <header>
+    <div id="logos">
+      <a class="logo" href="#home">
+        <img src="SPACELOGO.gif" alt="Logo" />
+      </a>
+      <a
+        class="logo-text"
+        href="https://ascend.hackclub.com/"
+        target="_blank"
+        rel="noopener"
+        >Ascend 2024</a
+      >
+    </div>
+    <ul class="nav-bar">
+      <li><a class="nav-link" href="home.html">Home</a></li>
+      <li><a class="nav-link" href="design.html">Design</a></li>
+      <li><a class="nav-link" href="about.html">About</a></li>
+      <li><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+  <body>
+    <!--─────────────────Design────────────────-->
+    <div id="container">
+      <div id="background" class="section">
+        <div id="circleContainer">
+          <div id="circle"></div>
+        </div>
+        <div id="shoes"></div>
+        <div id="rings"></div>
+      </div>
+      <div id="questionContainer" class="section">
+        <form id="planetForm">
+          <label for="nameInput"
+            >Welcome to Planetopia - where you can create your dream world!
+            <br />
+            <br />
+            Use the buttons & color picker to customize the planet to your
+            liking. <br />What will your planet be called?
+          </label>
+          <br />
+          <br />
+          <input type="text" id="nameInput" name="nameInput" required />
+          <button type="submit"><strong>Submit</strong></button>
+        </form>
+        <h1 id="planetHeading">Untitled Planet</h1>
+      </div>
+
+      <div id="ringButtonContainer" class="section">
+        <h3>Select your planet's rings:</h3>
+        <button
+          class="btn"
+          type="button"
+          value="NEXT"
+          class="btn"
+          id="nextring"
+          onclick="nextring()"
+        >
+          <strong>Next Ring</strong>
+        </button>
+      </div>
+      <div id="colorButtonContainer" class="section">
+        <h3 for="colorPicker">Choose a color for your planet:</h3>
+        <input type="color" id="colorPicker" title="Color Picker" />
+      </div>
+      <div id="landscapeButtonContainer" class="section">
+        <h3>Select your planet's landscape:</h3>
+        <button
+          class="btn"
+          type="button"
+          value="NEXT"
+          class="btn"
+          id="nextlandscape"
+          onclick="nextlandscape()"
+        >
+          <strong>Next Landscape</strong>
+        </button>
+      </div>
+      <div id="chatButtonContainer" class="section">
+        <h3>Take a visit to your planet:</h3>
+        <button
+          class="btn"
+          type="button"
+          value="VISIT"
+          class="btn"
+          id="startVisit"
+          onclick="startVisit()"
+        >
+          <strong>Start Visit</strong>
+        </button>
+      </div>
+    </div>
+    <script src="js/design.js"></script>
+  </body>
+</html>
