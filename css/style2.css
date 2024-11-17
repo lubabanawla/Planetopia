@@ -1,9 +1,12 @@
 div{
-    width: 755px;
+   width: 755px;
    height :987px;
 }
+
 #container{
-   display: flex;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr;
    justify-content: end;
 }
 
@@ -15,62 +18,62 @@ body{
 #background{
    display: flex;
    align-items: center;
-   position:absolute;
+   grid-column: 0;
+   grid-row: 1/ span 2;
    width:555px;
    height:987px;
-   left:100px;
-   right: 100px;}
+}
 
 #shoes{
-    position:absolute;
+    
    width:555px;
    height:987px;  
 }
 
 .cloudy{
-    position:absolute;
+    
    width:555px;
    height:987px;
    background-image: url(../img/cloudy.png);  
 }
 .jupiter{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/jupiter.png);
 }
 .scales{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/scales.png);
 }
 
 #rings{
-    position:absolute;
+    
    width:555px;
    height:987px;
 }
 .onering{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/onering.png);
 }
 .tworings{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/tworings.png);
 }
 .snowring{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/snowring.png)
 }
 .snowring2{
-   position:absolute;
+   
    width:555px;
    height:987px;
    background-image: url(../img/snowring2.png)
@@ -79,12 +82,12 @@ body{
 
 /**buttons**/
 #nextring{
-   position:absolute;
+   
    right:20px;
    top:90px;
 }
 #nextlandscape{
-   position:absolute;
+   
    right:20px;
    top:90px;
 }
@@ -113,20 +116,24 @@ body{
    background-color: red; /* Initial color */
    border-radius: 50%;
    margin: 20px;
-   position:absolute;
+   
    right:85px;
    top:330px;
 }
-#colorPicker{
-   display: flex;
-   justify-content: flex-end;
-   position: fixed; /* Keeps the color picker fixed relative to the viewport */
-   right: 240px; /* Adds space between the color picker and the right edge of the screen */
-   top: 50%; /* Centers the color picker vertically */
-   transform: translateY(-50%); /* Adjusts the vertical centering */
-   width: 200px;
-   height: 200px;
+
+#colorPicker {
+    position: absolute; /* Sticks it to a certain position within its container */
+    right: 80px; /* Fixed distance from the right edge */
+    width: 150px;
+    height: 150px;
+    z-index: 10; /* Ensures it's not overlapped by other elements */
+    border: 2px solid #fff; /* Optional border for clarity */
+    border-radius: 8px; /* Optional: rounded edges */
 }
+
+
+
+
 #circleContainer{
    background: linear-gradient(#A279CC, #7788DA, #5296E4);
    width: 680px;
@@ -138,7 +145,7 @@ body{
    width: 300px;
    height: 200px;
    border-radius: 2rem;
-   position:absolute;
+   
    right:200px;
    top:150px;
 }
@@ -147,7 +154,7 @@ body{
    width: 300px;
    height: 200px;
    border-radius: 2rem;
-   position:absolute;
+   
    right:200px;
    top:700px;
 }
@@ -168,19 +175,8 @@ h3 {
    width: 900px;
    height: 300px;
    border-radius: 2rem;
-   position:absolute;
    right:600px;
    top:150px;
-}
-
-#namenContainer{
-   background: #515c91;
-   width: 900px;
-   height: 300px;
-   border-radius: 2rem;
-   position:absolute;
-   right:600px;
-   top:100px;
 }
 
 label{
