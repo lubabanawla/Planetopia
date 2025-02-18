@@ -46,32 +46,21 @@ function addMessageToChatLog(message, sender) {
 // Asendi's response using the Ollama LLM
 async function getAsendiResponse(userMessage) {
   try {
-    const response = fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer <OPENROUTER_API_KEY>",
-        "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
-        "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "model": "deepseek/deepseek-r1:free",
-        "messages": [
-          {
-            "role": "user",
-            "content": "What is the meaning of life?"
-          }
-        ]
-      })
-    });
-    const url = "http://localhost:11434/api/generate"; // Target localhost port
     const payload = {
-      model: "llama3.2",
-      prompt: `${systemPrompt}\nVisitor: ${userMessage}\nAsendi:`,
-      stream: false,
+      model: "deepseek/deepseek-r1:free",
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt
+        },
+        {
+          role: "user",
+          content: userMessage
+        }
+      ]
     };
     // Make the POST request using fetch
-    const response = await fetch(url, {
+    const response = await fetch("/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
