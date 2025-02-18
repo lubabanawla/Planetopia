@@ -105,7 +105,7 @@ a.nav-link {
 }
 
 body {
-    background-image: url("../img/assets/resized_background.png");
+    background-image: url("/img/assets/resized_background.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
@@ -259,19 +259,19 @@ label {
 }
 
 .cloudy {
-    background-image: url(../img/assets/cloudy.png);
+    background-image: url(/img/assets/cloudy.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .jupiter {
-    background-image: url(../img/assets/jupiter.png);
+    background-image: url(/img/assets/jupiter.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .scales {
-    background-image: url(../img/assets/scales.png);
+    background-image: url(/img/assets/scales.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -286,25 +286,25 @@ label {
 }
 
 .onering {
-    background-image: url(../img/assets/onering.png);
+    background-image: url(/img/assets/onering.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .tworings {
-    background-image: url(../img/assets/tworings.png);
+    background-image: url(/img/assets/tworings.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .snowring {
-    background-image: url(../img/assets/snowring.png);
+    background-image: url(/img/assets/snowring.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .snowring2 {
-    background-image: url(../img/assets/snowring2.png);
+    background-image: url(/img/assets/snowring2.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
