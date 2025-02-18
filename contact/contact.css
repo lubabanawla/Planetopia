@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @font-face {
     font-family: 'Avalors Personal Use';
-    src: url('fonts/Avalors-PersonalUse.ttf') format('truetype');
+    src: url('/fonts/Avalors-PersonalUse.ttf') format('truetype');
 }
 
 :root {
