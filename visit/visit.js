@@ -57,7 +57,8 @@ async function getAsendiResponse(userMessage) {
           role: "user",
           content: userMessage
         }
-      ]
+      ],
+      stream: false,
     };
     // Make the POST request using fetch
     const response = await fetch("/api", {
