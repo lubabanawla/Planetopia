@@ -12,7 +12,7 @@ const planetName = urlParams.get("planetName") || defaultPlanetData.planetName;
 const color = urlParams.get("color") || defaultPlanetData.color;
 const appearance = urlParams.get("appearance") || defaultPlanetData.appearance;
 const ringDescription =
-urlParams.get("ringDescription") || defaultPlanetData.ringDescription;
+  urlParams.get("ringDescription") || defaultPlanetData.ringDescription;
 
 // Initialize chat log with Asendi's introduction
 document.addEventListener("DOMContentLoaded", async () => {
@@ -38,35 +38,53 @@ function addMessageToChatLog(message, sender) {
   messageDiv.innerHTML = parsedMessage;
 
   chatLog.appendChild(messageDiv);
-  
+
   // Auto scroll to the bottom
   chatLog.scrollTop = chatLog.scrollHeight;
 }
 
 // Asendi's response using the Ollama LLM
 async function getAsendiResponse(userMessage) {
-    try {
-        const url = "http://localhost:11434/api/generate"; // Target localhost port
-        const payload = {
-            model: "llama3.2",
-            prompt: `${systemPrompt}\nVisitor: ${userMessage}\nAsendi:`,
-            stream: false,
-        };
-        // Make the POST request using fetch
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-        });
-        const data = await response.json();
-        console.log("Success:", data);
-        return data.response; // Assuming the response has a 'response' field
-    } catch (error) {
-        console.error("Fetch error:", error);
-        return "Asendi is unable to connect to the server.";
-    }
+  try {
+    const response = fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer <OPENROUTER_API_KEY>",
+        "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
+        "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "model": "deepseek/deepseek-r1:free",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What is the meaning of life?"
+          }
+        ]
+      })
+    });
+    const url = "http://localhost:11434/api/generate"; // Target localhost port
+    const payload = {
+      model: "llama3.2",
+      prompt: `${systemPrompt}\nVisitor: ${userMessage}\nAsendi:`,
+      stream: false,
+    };
+    // Make the POST request using fetch
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json();
+    console.log("Success:", data);
+    return data.response; // Assuming the response has a 'response' field
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return "Asendi is unable to connect to the server.";
+  }
 }
 
 // Handle user input
@@ -87,11 +105,11 @@ document.getElementById("user-input").addEventListener("keydown", (event) => {
 });
 
 function startVisit() {
-    const planetName = document.getElementById('nameInput').value || defaultPlanetData.planetName;
-    const color = document.getElementById('colorPicker').value || defaultPlanetData.color;
-    const appearance = state.j === 0 ? 'cloudy' : state.j === 1 ? 'jupiter' : 'scales';
-    const ringDescription = state.k === 0 ? 'onering' : state.k === 1 ? 'tworings' : state.k === 2 ? 'snowring' : 'snowring2';
+  const planetName = document.getElementById('nameInput').value || defaultPlanetData.planetName;
+  const color = document.getElementById('colorPicker').value || defaultPlanetData.color;
+  const appearance = state.j === 0 ? 'cloudy' : state.j === 1 ? 'jupiter' : 'scales';
+  const ringDescription = state.k === 0 ? 'onering' : state.k === 1 ? 'tworings' : state.k === 2 ? 'snowring' : 'snowring2';
 
-    const url = `visit.html?planetName=${encodeURIComponent(planetName)}&color=${encodeURIComponent(color)}&appearance=${encodeURIComponent(appearance)}&ringDescription=${encodeURIComponent(ringDescription)}`;
-    window.location.href = url;
+  const url = `visit.html?planetName=${encodeURIComponent(planetName)}&color=${encodeURIComponent(color)}&appearance=${encodeURIComponent(appearance)}&ringDescription=${encodeURIComponent(ringDescription)}`;
+  window.location.href = url;
 }
