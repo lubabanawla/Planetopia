@@ -52,21 +52,43 @@ async function getAsendiResponse(userMessage) {
         {
           role: "system",
           content: systemPrompt
+        },
+        {
+          role: "user",
+          content: userMessage
         }
       ],
       stream: false,
     };
+
+    // Log the payload being sent
+    console.log("Sending payload:", payload);
+
     // Make the POST request using fetch
-    const response = await fetch("/api/", {
+    const response = await fetch("/api/", { // Ensure the correct endpoint
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
+
+    // Check if the response is ok
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
+
+    // Log the response data
     console.log("Success:", data);
-    return data.response; // Assuming the response has a 'response' field
+
+    // Check if the response has the expected field
+    if (!data.response) {
+      throw new Error("Response does not contain 'response' field");
+    }
+
+    return data.response;
   } catch (error) {
     console.error("Fetch error:", error);
     return "Asendi is unable to connect to the server.";
