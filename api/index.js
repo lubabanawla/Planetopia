@@ -14,7 +14,12 @@ export default async function handler(req, res) {
         });
 
         const data = await response.json();
-        res.status(response.status).json(data);
+
+        if (!data.choices || !data.choices[0] || !data.choices[0].message || !data.choices[0].message.content) {
+            return res.status(500).json({ error: "Invalid response from OpenRouter" });
+        }
+
+        res.status(response.status).json({ response: data.choices[0].message.content });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
