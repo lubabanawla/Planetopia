@@ -75,7 +75,7 @@ async function getAsendiResponse(userMessage) {
 
     // Check if the response is ok
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status} \n ${response.statusText}`);
     }
 
     const data = await response.json();
