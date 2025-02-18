@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 // System prompt for Ollama model
 const systemPrompt = `You are an alien tour guide by the name of Asendi. Your job is to guide the visitor through ${planetName}, who's color is of hex code ${color} and is a ${appearance} planet with a ${ringDescription} ring around it. Be as respectful as possible, and respond in a succinctly yet witty way, like an alien. Talk like an alien, act like an alien, and be an alien. Guide the visitor through the planet, and make sure they have a good time. When you perform an action, say it within brackets, like *[Asendi waves its tentacles.]*`;
 
-// Array to keep track of all messages
-const messageHistory = [];
-
 // Function to add messages to chat log
 function addMessageToChatLog(message, sender) {
   const chatLog = document.getElementById("chat-log");
@@ -44,9 +41,6 @@ function addMessageToChatLog(message, sender) {
 
   // Auto scroll to the bottom
   chatLog.scrollTop = chatLog.scrollHeight;
-
-  // Add message to history
-  messageHistory.push({ sender, message });
 }
 
 // Asendi's response using the Ollama LLM
@@ -58,11 +52,7 @@ async function getAsendiResponse(userMessage) {
         {
           role: "system",
           content: systemPrompt
-        },
-        ...messageHistory.map(msg => ({
-          role: msg.sender === "user" ? "user" : "assistant",
-          content: msg.message
-        })),
+        }
       ],
       stream: false,
     };
