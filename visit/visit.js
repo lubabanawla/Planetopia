@@ -65,7 +65,7 @@ async function getAsendiResponse(userMessage) {
     console.log("Sending payload:", payload);
 
     // Make the POST request using fetch
-    const response = await fetch("/api/", { // Ensure the correct endpoint
+    const response = await fetch("/api", { // Ensure the correct endpoint
       method: "POST",
       headers: {
         "Content-Type": "application/json",
