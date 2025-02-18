@@ -61,7 +61,7 @@ async function getAsendiResponse(userMessage) {
       stream: false,
     };
     // Make the POST request using fetch
-    const response = await fetch("/api", {
+    const response = await fetch("/api/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
