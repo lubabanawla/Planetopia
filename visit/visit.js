@@ -99,6 +99,6 @@ function startVisit() {
   const appearance = state.j === 0 ? 'cloudy' : state.j === 1 ? 'jupiter' : 'scales';
   const ringDescription = state.k === 0 ? 'onering' : state.k === 1 ? 'tworings' : state.k === 2 ? 'snowring' : 'snowring2';
 
-  const url = `visit.html?planetName=${encodeURIComponent(planetName)}&color=${encodeURIComponent(color)}&appearance=${encodeURIComponent(appearance)}&ringDescription=${encodeURIComponent(ringDescription)}`;
+  const url = `/visit?planetName=${encodeURIComponent(planetName)}&color=${encodeURIComponent(color)}&appearance=${encodeURIComponent(appearance)}&ringDescription=${encodeURIComponent(ringDescription)}`;
   window.location.href = url;
 }

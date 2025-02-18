@@ -96,7 +96,7 @@ function startVisit() {
       ? "snowy"
       : "lightly snowy";
 
-  const url = `visit.html?planetName=${encodeURIComponent(
+  const url = `/visit?planetName=${encodeURIComponent(
     planetName
   )}&color=${encodeURIComponent(color)}&appearance=${encodeURIComponent(
     appearance
