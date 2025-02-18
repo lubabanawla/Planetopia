@@ -4,6 +4,8 @@ export default async function handler(req, res) {
     }
 
     try {
+        console.log('Received request body:', req.body);
+
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
@@ -13,14 +15,18 @@ export default async function handler(req, res) {
             body: JSON.stringify(req.body)
         });
 
+        console.log('OpenRouter response status:', response.status);
+
         const data = await response.json();
+        console.log('OpenRouter response data:', data);
 
         if (!data.choices || !data.choices[0] || !data.choices[0].message || !data.choices[0].message.content) {
-            return res.status(500).json({ error: "Invalid response from OpenRouter" });
+            return res.status(500).json({ error: "Invalid response from OpenRouter", data: data });
         }
 
         res.status(response.status).json({ response: data.choices[0].message.content });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('API Error:', error);
+        res.status(500).json({ error: error.message, stack: error.stack });
     }
 }
