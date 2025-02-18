@@ -61,11 +61,9 @@ async function getAsendiResponse(userMessage) {
       stream: false,
     };
 
-    // Log the payload being sent
     console.log("Sending payload:", payload);
 
-    // Make the POST request using fetch
-    const response = await fetch("/api", { // Ensure the correct endpoint
+    const response = await fetch("/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,27 +71,25 @@ async function getAsendiResponse(userMessage) {
       body: JSON.stringify(payload),
     });
 
-    // Check if the response is ok
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status} \n ${response.statusText}`);
     }
 
     const data = await response.json();
-
-    // Log the response data
     console.log("Success:", data);
 
-    // Check if the response has the expected field
-    if (!data.response) {
-      throw new Error("Response does not contain 'response' field");
+    // Check if response is structured correctly
+    if (!data.choices || !data.choices[0] || !data.choices[0].message || !data.choices[0].message.content) {
+      throw new Error("Response structure unexpected: Missing 'choices[0].message.content'");
     }
 
-    return data.response;
+    return data.choices[0].message.content;
   } catch (error) {
     console.error("Fetch error:", error);
     return "Asendi is unable to connect to the server.";
   }
 }
+
 
 // Handle user input
 document.getElementById("send-btn").addEventListener("click", async () => {
